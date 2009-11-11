@@ -204,7 +204,7 @@ def self.run_in_event_thread
     SwingUtilities.invoke_and_wait do
       begin
         yield
-      rescue Exception, e
+      rescue Exception => e
         exception = e
       end
     end
