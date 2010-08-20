@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'rake'
 require 'rake/clean'
 require_relative 'platform/skel'
@@ -28,6 +27,10 @@ CLEAN.include ["{bin,shoes}/#{BIN}", "req/**/#{BIN}", "dist"]
 RUBY_SO = Config::CONFIG['RUBY_SO_NAME']
 RUBY_V = Config::CONFIG['ruby_version']
 RUBY_1_9 = (RUBY_V =~ /^1\.9/)
+
+if RUBY_1_9
+  $: << "."
+end
 
 if ENV['APP']
   %w[dmg icons].each do |subk|
