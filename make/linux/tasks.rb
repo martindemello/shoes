@@ -8,7 +8,7 @@ class MakeLinux
   class << self
     def copy_ext xdir, libdir
       Dir.chdir(xdir) do
-        unless system "ruby", "extconf.rb" and system "make"
+        unless system RUBY, "extconf.rb" and system "make"
           raise "Extension build failed"
         end
       end
